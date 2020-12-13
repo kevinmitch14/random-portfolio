@@ -1,38 +1,208 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.testing {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.tradingview-widget-container div div {
+  height: 700px !important;
+  width: 100% !important;
+}
+
+.tradingview-widget-container {
+  -webkit-box-flex: 10;
+      -ms-flex: 10;
+          flex: 10;
+}
+
+.Results {
+  border: 1px solid black;
+  background-color: white;
+}
+
+.Charts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.DailyGraph {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 5px;
+}
+
+.AccumGraph {
+  margin: 5px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.portfolio-graph {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.MuiInputLabel-formControl {
+  top: 0.5rem !important;
+  left: 1rem !important;
+  color: #ffffff !important;
+}
+
+label {
+  z-index: 100;
+}
+
+.MuiInput-underline:before {
+  content: none !important;
+}
+
+.MuiInput-underline:after {
+  content: none !important;
+}
+
+.Header {
+  background-color: #515a66;
+  padding: 0.5rem;
+  padding-top: 0rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  min-height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: 1fr 2fr 1fr;
+      grid-template-columns: 1fr 2fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+}
+
+.Header input {
+  width: 80%;
+  margin-right: 5vw;
+  height: 50px;
+  position: relative;
+  padding: 0px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.178);
+  border-top: 1px solid rgba(0, 0, 0, 0.075);
+  border-radius: 4px;
+  font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  background-color: #b3b1b141;
+  color: #282828;
+  outline: none;
+  -webkit-box-shadow: 0px 4px 20px 0px transparent;
+          box-shadow: 0px 4px 20px 0px transparent;
+  -webkit-transition: 0.3s background-color ease-in-out, 0.1s padding ease-in-out, 0.3s -webkit-box-shadow ease-in-out;
+  transition: 0.3s background-color ease-in-out, 0.1s padding ease-in-out, 0.3s -webkit-box-shadow ease-in-out;
+  transition: 0.3s background-color ease-in-out, 0.3s box-shadow ease-in-out, 0.1s padding ease-in-out;
+  transition: 0.3s background-color ease-in-out, 0.3s box-shadow ease-in-out, 0.1s padding ease-in-out, 0.3s -webkit-box-shadow ease-in-out;
+  -webkit-appearance: none;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.Header input:hover {
+  background-color: rgba(255, 255, 255, 0.45);
+  -webkit-box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+}
+
+.Header input:focus {
+  border: none;
+}
+
+.Header input::-webkit-input-placeholder {
+  color: black;
+}
+
+.Header input:-ms-input-placeholder {
+  color: black;
+}
+
+.Header input::-ms-input-placeholder {
+  color: black;
+}
+
+.Header input::placeholder {
+  color: black;
+}
+
+.Header button {
+  height: 52px;
+  color: black;
+  background-color: #7aaef3;
+  width: auto;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 4px 20px 0px transparent;
+          box-shadow: 0px 4px 20px 0px transparent;
+  -webkit-transition: 0.3s background-color ease-in-out, 0.1s padding ease-in-out, 0.3s color ease-in-out, 0.3s -webkit-box-shadow ease-in-out;
+  transition: 0.3s background-color ease-in-out, 0.1s padding ease-in-out, 0.3s color ease-in-out, 0.3s -webkit-box-shadow ease-in-out;
+  transition: 0.3s background-color ease-in-out, 0.3s box-shadow ease-in-out, 0.1s padding ease-in-out, 0.3s color ease-in-out;
+  transition: 0.3s background-color ease-in-out, 0.3s box-shadow ease-in-out, 0.1s padding ease-in-out, 0.3s color ease-in-out, 0.3s -webkit-box-shadow ease-in-out;
+}
+
+.Header button:hover {
+  background-color: #5d76e4;
+  -webkit-box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.news-item {
+  margin: 1rem 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.news-feed {
+  overflow: auto;
+  height: 700px;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
+
+.news-feed p {
+  color: #5d76e4;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+
+#tradingview_8a7e5-wrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/*# sourceMappingURL=App.css.map */
