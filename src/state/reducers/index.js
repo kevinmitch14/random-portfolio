@@ -1,6 +1,7 @@
 const initalState = {
     numberStocks: '',
     numberDays: '',
+    investment: 1000,
     SPStocks: [],
     historicalData: [],
     error: null,
@@ -12,8 +13,9 @@ const reducer = (state = initalState, action) => {
         case 'USER_INPUT':
             return {
                 ...state,
-                numberDays: state.numberDays + action.payload.days,
-                numberStocks: state.numberStocks + action.payload.stocks
+                numberDays: action.payload.days,
+                numberStocks: action.payload.stocks,
+                investment: action.payload.investment
             }
         case 'SP_FETCHER_INIT':
             return {
@@ -30,7 +32,6 @@ const reducer = (state = initalState, action) => {
             return {
                 ...state,
                 error: action.payload
-
             }
 
         case "DATA_FETCHER":

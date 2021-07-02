@@ -1,9 +1,11 @@
-export const inputHandler = (stocks, days) => {
+import axios from 'axios'
+export const inputHandler = (stocks, days, investment) => {
     return {
         type: 'USER_INPUT',
         payload: {
             stocks: stocks,
-            days: days
+            days: days,
+            investment: investment
         }
     }
 }
@@ -16,22 +18,21 @@ export const SP_Fetcher = () => {
         });
 
         try {
-            let data = await fetch(`https://finnhub.io/api/v1/index/constituents?symbol=^GSPC&token=bv4bhc748v6qpatdfb4g`)
-            data = await data.json()
+            let { data } = await axios.get(`https://finnhub.io/api/v1/index/constituents?symbol=^GSPC&token=${process.env.REACT_APP_FINNHUB_API_KEY}`);
 
             dispatch({
                 type: "SP_FETCHER_SUCCESS",
                 payload: data
-            })
+            });
 
         } catch (err) {
             dispatch({
                 type: "SP_FETCHER_ERROR",
                 payload: err.message
-            })
-        }
-    }
-}
+            });
+        };
+    };
+};
 
 
 export const testingFetch = (data) => {
