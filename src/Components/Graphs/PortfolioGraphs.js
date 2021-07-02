@@ -6,21 +6,21 @@ import { useSelector } from 'react-redux';
 
 const PortfolioGraphs = () => {
     const [data, setData] = useState({})
-    const { numberStocks, historicalData } = useSelector(state => state)
+    const { numberStocks, historicalData, investment } = useSelector(state => state)
+
+
 
     useEffect(() => {
         let testingData = {}
+        historicalData && historicalData.forEach((item, index) => {
+            let startingPrice = item[1].o[0];
 
-
-        historicalData.forEach((item, index) => {
-            let startingPrice = item.data.o[0];
-
-            for (let i = 0; i < item.data.o.length; i++) {
-                let nextPrice = item.data.c[i]
+            for (let i = 0; i < item[1].o.length; i++) {
+                let nextPrice = item[1].c[i]
                 let diff = ((nextPrice - startingPrice) / startingPrice) * 100
                 let newValue = testingData[i] + diff
                 i in testingData ? testingData[i] = newValue : testingData[i] = diff
-                startingPrice = item.data.c[i]
+                startingPrice = item[1].c[i]
             }
         });
 
@@ -28,7 +28,7 @@ const PortfolioGraphs = () => {
     }, [historicalData])
 
 
-    let portfolioSize = 1000
+    let portfolioSize = investment
     const portfolioData = Object.keys(data).map((item) => {
         portfolioSize = portfolioSize + (portfolioSize * (data[item] / numberStocks) / 100)
         let percentChange = data[item] / numberStocks
@@ -37,8 +37,11 @@ const PortfolioGraphs = () => {
     })
 
 
+
+
     const barChart = (
-        <ResponsiveContainer width={"95%"} height={500}>
+        // <ResponsiveContainer width={'50%'} height={500}>
+        <ResponsiveContainer width={"99%"} height={500}>
             <BarChart data={portfolioData}>
                 <Tooltip />
                 <YAxis />
@@ -53,11 +56,11 @@ const PortfolioGraphs = () => {
     );
 
     const lineChart = (
-        <ResponsiveContainer width="95%" height={500}>
+        <ResponsiveContainer width={"99%"} height={500}>
             <LineChart data={portfolioData} >
                 <Tooltip />
                 <XAxis />
-                <YAxis dataKey='portfolioSize' domain={[500, 1500]} />
+                <YAxis dataKey='portfolioSize' domain={[investment - (investment * .2), investment + (investment * .2)]} />
                 <Line type="monotone" dataKey="portfolioSize" stroke="#8884d8" />
             </LineChart>
         </ResponsiveContainer>
@@ -67,8 +70,8 @@ const PortfolioGraphs = () => {
     return (
         <>
             {Object.keys(data).length > 0 &&
-                <div className='test'>
-                    <Accordion defaultExpanded={true} TransitionProps={{ unmountOnExit: true }} style={{ backgroundColor: '#ffffff', borderRadius: "0px", borderBottom: '1px solid black' }}>
+                <div className='Portfolio'>
+                    <Accordion defaultExpanded={true} TransitionProps={{ unmountOnExit: true }}>
                         <AccordionSummary
                             style={{ backgroundColor: '#7aaef3' }}
                             expandIcon={<ExpandMoreIcon />}
@@ -79,7 +82,7 @@ const PortfolioGraphs = () => {
                         </AccordionSummary>
                         <AccordionDetails style={{ paddingLeft: '0', paddingRight: '20px' }}>
                             <Typography component={'span'} style={{ width: '100%' }}>
-                                <div className="portfolio-graph">
+                                <div className="PortfolioGraphContainer">
                                     {barChart}
                                     {lineChart}
                                 </div>
