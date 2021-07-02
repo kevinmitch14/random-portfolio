@@ -1,13 +1,13 @@
 import React from 'react'
 import PortfolioGraphs from './Graphs/PortfolioGraphs'
-import StockGraphs from './StockGraphs'
+import StockAccordian from './StockAccordian'
 
 
 const Results = () => {
     return (
-        <div>
+        <div className='Results'>
             <PortfolioGraphs />
-            <StockGraphs />
+            <StockAccordian />
         </div>
     )
 }

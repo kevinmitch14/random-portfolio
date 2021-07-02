@@ -6,14 +6,11 @@ import { useSelector } from 'react-redux'
 
 function App() {
   const { error } = useSelector(state => state)
-
   return (
     <div className="App">
-      <h1>{error}</h1>
       <Header />
-
-      <Results
-      />
+      {error && <h2 style={{ color: 'red' }}>Can't load S&#38;P Stocks: {error}</h2>}
+      <Results />
     </div>
   );
 }
